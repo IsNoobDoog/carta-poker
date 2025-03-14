@@ -1,11 +1,26 @@
-import "bootstrap";
-import "./style.css";
+window.onload = function () {
+  const carta = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+  const palos = ["♦", "♥", "♠", "♣"];
 
+  let cartaAleatoria = carta[Math.floor(Math.random() * carta.length)]
+  let simboloAleatorio = palos[Math.floor(Math.random() * palos.length)]
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
+  document.getElementById("palo").innerText = simboloAleatorio;
+  document.getElementById("numero").innerText = cartaAleatoria;
+  document.getElementById("paloInvertido").innerText = simboloAleatorio;
 
-window.onload = function() {
+  if (simboloAleatorio === "♥" || simboloAleatorio === "♦") {
+    document.getElementById("palo").classList.add("rojo");
+    document.getElementById("paloInvertido").classList.add("rojo");
+  }
+  document.getElementById("recargar").addEventListener("click", function () {
+    location.reload();
+  });
+
+  setInterval(function () {
+    location.reload();
+  }, 10000)
+
   //write your code here
-  console.log("Hello Rigo from the console!");
+
 };
